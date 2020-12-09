@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, { CSSProperties, useEffect, useState } from 'react';
 
 import { SecCompany } from '../../../utils/types';
+import CurrentFund from './CurrentFund';
 import FundSelect from './FundSelect';
 
 const Funds = () => {
@@ -24,6 +25,7 @@ const Funds = () => {
                 selectedIndex={selectedIndex}
                 setSelectedIndex={setSelectedIndex}
             />
+            <CurrentFund cik={secCompanies[selectedIndex].cik} />
         </div>
     );
 };
@@ -33,6 +35,7 @@ const styles = {
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
+        flexDirection: 'row',
         paddingTop: 20
     } as CSSProperties
 };
