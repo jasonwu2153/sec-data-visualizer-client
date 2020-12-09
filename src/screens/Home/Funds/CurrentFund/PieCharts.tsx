@@ -2,7 +2,6 @@ import { prop } from 'lodash/fp';
 import React, { CSSProperties } from 'react';
 import { Doughnut } from 'react-chartjs-2';
 
-import { numberWithCommas } from '../../../../utils/helpers';
 import { PieData } from '../../../../utils/types';
 
 interface Props {
@@ -19,6 +18,11 @@ const PieCharts = (props: Props) => {
     return (
         <div style={styles.wrapper}>
             <div style={styles.chartWrapper}>
+                <div style={styles.labelWrapper}>
+                    <p style={styles.label}>
+                        Position Distribution by Value in USD
+                    </p>
+                </div>
                 <Doughnut
                     data={{
                         datasets: [{ data: data[0].map(prop('value')) }],
@@ -30,13 +34,11 @@ const PieCharts = (props: Props) => {
                         cutoutPercentage: 80,
                         legend: { display: false },
                         tooltips: {
-                            bodyFontColor: '#FFFFFF',
-                            backgroundColor: '#101010',
                             callbacks: {
-                                label: (item: any) =>
-                                    `$${numberWithCommas(
-                                        data[0][item.index].value
-                                    )}`
+                                label: (item: any) => {
+                                    const entry = data[0][item.index];
+                                    return ` ${entry.name}: $${entry.value}`;
+                                }
                             }
                         }
                     }}
@@ -50,7 +52,20 @@ const styles = {
     wrapper: {
         flex: 1
     } as CSSProperties,
-    chartWrapper: {} as CSSProperties
+    chartWrapper: {
+        width: '100%',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        flexDirection: 'row'
+    } as CSSProperties,
+    labelWrapper: {
+        marginRight: 60,
+        maxWidth: 200
+    } as CSSProperties,
+    label: {
+        fontSize: 22
+    } as CSSProperties
 };
 
 export default PieCharts;
