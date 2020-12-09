@@ -1,6 +1,6 @@
 import { blue, grey } from '@ant-design/colors';
 import moment from 'moment';
-import React, { CSSProperties } from 'react';
+import React, { CSSProperties, useState } from 'react';
 
 import { black } from '../../../../utils/colors';
 import { SecCompany } from '../../../../utils/types';
@@ -12,6 +12,8 @@ interface Props {
 const CurrentFund = (props: Props) => {
     const { fund } = props;
 
+    const [holdings, setHoldings] = useState([]);
+
     if (!fund) {
         return null;
     }
@@ -21,9 +23,9 @@ const CurrentFund = (props: Props) => {
             <div style={styles.headerWrapper}>
                 <p style={styles.headerText}>{fund.name.toUpperCase()}</p>
                 <p style={styles.headerDescText}>
-                    The data visualization below illustrates recent positions
-                    acquired by the fund. Data was acquired by scraping the
-                    latest NPORT-P filings on{' '}
+                    CIK: {fund.cik} | The data visualization below illustrates
+                    recent positions acquired by the fund. Data was acquired by
+                    scraping the latest NPORT-P filings on{' '}
                     <a href="https://www.sec.gov/">sec.gov.</a>
                 </p>
                 <p style={styles.timestampText}>
@@ -53,7 +55,7 @@ const styles = {
     } as CSSProperties,
     headerDescText: {
         paddingTop: 10,
-        color: grey[3],
+        color: grey[5],
         maxWidth: 600
     } as CSSProperties,
     timestampText: {
