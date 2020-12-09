@@ -2,10 +2,11 @@ import { prop } from 'lodash/fp';
 import React, { CSSProperties } from 'react';
 import { Doughnut } from 'react-chartjs-2';
 
-import { HoldingPieData } from '../../../../utils/types';
+import { numberWithCommas } from '../../../../utils/helpers';
+import { PieData } from '../../../../utils/types';
 
 interface Props {
-    data: HoldingPieData[][];
+    data: PieData[][];
 }
 
 const PieCharts = (props: Props) => {
@@ -30,7 +31,13 @@ const PieCharts = (props: Props) => {
                         legend: { display: false },
                         tooltips: {
                             bodyFontColor: '#FFFFFF',
-                            backgroundColor: '#101010'
+                            backgroundColor: '#101010',
+                            callbacks: {
+                                label: (item: any) =>
+                                    `$${numberWithCommas(
+                                        data[0][item.index].value
+                                    )}`
+                            }
                         }
                     }}
                 />

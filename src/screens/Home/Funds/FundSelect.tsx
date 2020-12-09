@@ -28,6 +28,7 @@ const FundSelect = (props: Props) => {
                                 ...styles.fundWrapper,
                                 ...(isSelected && { background: blue.primary })
                             }}
+                            key={i}
                         >
                             <p
                                 style={{

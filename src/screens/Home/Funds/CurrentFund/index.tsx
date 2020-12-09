@@ -5,7 +5,7 @@ import moment from 'moment';
 import React, { CSSProperties, useEffect, useState } from 'react';
 
 import { black } from '../../../../utils/colors';
-import { HoldingPieData, SecCompany, TopData } from '../../../../utils/types';
+import { HoldingPieData, PieData, SecCompany, TopData } from '../../../../utils/types';
 import PieCharts from './PieCharts';
 
 interface Props {
@@ -14,7 +14,7 @@ interface Props {
 
 const CurrentFund = (props: Props) => {
     const { fund } = props;
-    const [pieData, setPieData] = useState<HoldingPieData[][]>([]);
+    const [pieData, setPieData] = useState<PieData[][]>([]);
     const [topNsData, setTopNsData] = useState<TopData[]>([]);
     const [topValData, setTopValData] = useState<TopData[]>([]);
 

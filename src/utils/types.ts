@@ -10,6 +10,11 @@ export interface HoldingPieData {
     val_usd: number;
 }
 
+export interface PieData {
+    name: string;
+    value: number;
+}
+
 export interface TopData {
     balance: number;
     val_usd: number;
