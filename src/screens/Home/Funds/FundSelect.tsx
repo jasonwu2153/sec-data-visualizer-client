@@ -60,7 +60,7 @@ const styles = {
     fundWrapper: {
         background: lightGray,
         borderRadius: 10,
-        padding: '20px 30px 20px 30px',
+        padding: 20,
         marginBottom: 10,
         width: '100%'
     } as CSSProperties,
