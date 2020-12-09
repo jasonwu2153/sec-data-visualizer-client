@@ -50,7 +50,8 @@ const PieCharts = (props: Props) => {
 
 const styles = {
     wrapper: {
-        flex: 1
+        flex: 1,
+        paddingBottom: 120
     } as CSSProperties,
     chartWrapper: {
         width: '100%',
