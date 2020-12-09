@@ -42,8 +42,7 @@ const Home = () => (
 
 const styles = {
     wrapper: {
-        width: '100%',
-        minHeight: '100vh'
+        width: '100%'
     } as CSSProperties,
     contentWrapper: {
         width: '100%',

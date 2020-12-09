@@ -6,7 +6,7 @@ import React, { CSSProperties, useEffect, useState } from 'react';
 
 import { black } from '../../../../utils/colors';
 import { HoldingPieData, SecCompany, TopData } from '../../../../utils/types';
-import PieChart from './PieChart';
+import PieCharts from './PieCharts';
 
 interface Props {
     fund: SecCompany;
@@ -74,7 +74,7 @@ const CurrentFund = (props: Props) => {
                 </p>
             </div>
             <div style={styles.graphsWrapper}>
-                <PieChart data={pieData} />
+                <PieCharts data={pieData} />
             </div>
         </div>
     );
@@ -84,7 +84,9 @@ const styles = {
     wrapper: {
         flex: 4,
         marginLeft: 30,
-        minWidth: 600
+        minWidth: 600,
+        overflowY: 'scroll',
+        maxHeight: 'calc(100vh - 165px)'
     } as CSSProperties,
     headerWrapper: {
         width: '100%',
@@ -105,7 +107,11 @@ const styles = {
         color: blue.primary
     } as CSSProperties,
     graphsWrapper: {
-        width: '100%'
+        display: 'flex',
+        flex: 1,
+        alignItems: 'center',
+        justifyContent: 'center',
+        flexDirection: 'column'
     } as CSSProperties
 };
 
