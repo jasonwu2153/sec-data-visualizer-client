@@ -1,6 +1,7 @@
+import { blue } from '@ant-design/colors';
 import React, { CSSProperties, Dispatch } from 'react';
 
-import { black, lightGray } from '../../../utils/colors';
+import { black, lightGray, white } from '../../../utils/colors';
 import { SecCompany } from '../../../utils/types';
 
 interface Props {
@@ -16,11 +17,26 @@ const FundSelect = (props: Props) => {
             <div style={styles.headerWrapper}>
                 <p style={styles.headerText}>Explore By Company</p>
             </div>
-            {funds.map((fund: SecCompany) => (
-                <div style={styles.fundWrapper}>
-                    <p style={styles.fundName}>{fund.name.toUpperCase()}</p>
-                </div>
-            ))}
+            {funds.map((fund: SecCompany, i: number) => {
+                const isSelected = i === selectedIndex;
+                return (
+                    <div
+                        style={{
+                            ...styles.fundWrapper,
+                            ...(isSelected && { background: blue.primary })
+                        }}
+                    >
+                        <p
+                            style={{
+                                ...styles.fundName,
+                                ...(isSelected && { color: white })
+                            }}
+                        >
+                            {fund.name.toUpperCase()}
+                        </p>
+                    </div>
+                );
+            })}
         </div>
     );
 };
