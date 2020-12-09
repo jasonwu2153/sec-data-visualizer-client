@@ -1,3 +1,4 @@
+import { blue } from '@ant-design/colors';
 import { prop } from 'lodash/fp';
 import React, { CSSProperties } from 'react';
 import { Doughnut } from 'react-chartjs-2';
@@ -25,11 +26,18 @@ const PieCharts = (props: Props) => {
                 </div>
                 <Doughnut
                     data={{
-                        datasets: [{ data: data[0].map(prop('value')) }],
+                        datasets: [
+                            {
+                                data: data[0].map(prop('value')),
+                                backgroundColor: data[0].map((_, i: number) =>
+                                    i < 9 ? blue[9 - i] : blue[1]
+                                )
+                            }
+                        ],
                         labels: data[0].map(prop('name'))
                     }}
-                    height={600}
-                    width={600}
+                    height={80}
+                    width={80}
                     options={{
                         cutoutPercentage: 80,
                         legend: { display: false },
