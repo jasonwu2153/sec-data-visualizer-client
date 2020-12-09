@@ -2,6 +2,8 @@ import { Tabs } from 'antd';
 import React, { CSSProperties } from 'react';
 
 import NavBar from '../../components/NavBar';
+import Funds from './Funds';
+import Holdings from './Holdings';
 
 const { TabPane } = Tabs;
 
@@ -10,8 +12,12 @@ const Home = () => (
         <NavBar />
         <div style={styles.contentWrapper}>
             <Tabs defaultActiveKey="1">
-                <TabPane tab={<span>Funds</span>} key="1" />
-                <TabPane tab={<span>Holdings</span>} key="2" />
+                <TabPane tab={<span>Funds</span>} key="1">
+                    <Funds />
+                </TabPane>
+                <TabPane tab={<span>Holdings</span>} key="2">
+                    <Holdings />
+                </TabPane>
             </Tabs>
         </div>
     </div>
