@@ -1,9 +1,11 @@
 import { blue, grey } from '@ant-design/colors';
+import axios from 'axios';
+import { prop, propOr } from 'lodash/fp';
 import moment from 'moment';
-import React, { CSSProperties, useState } from 'react';
+import React, { CSSProperties, useEffect, useState } from 'react';
 
 import { black } from '../../../../utils/colors';
-import { SecCompany } from '../../../../utils/types';
+import { HoldingPieData, SecCompany, TopData } from '../../../../utils/types';
 
 interface Props {
     fund: SecCompany;
@@ -11,8 +13,45 @@ interface Props {
 
 const CurrentFund = (props: Props) => {
     const { fund } = props;
+    const [pieData, setPieData] = useState<HoldingPieData[][]>([]);
+    const [topNsData, setTopNsData] = useState<TopData[]>([]);
+    const [topValData, setTopValData] = useState<TopData[]>([]);
 
-    const [holdings, setHoldings] = useState([]);
+    useEffect(() => {
+        const apiUrl = process.env.REACT_APP_API_URL + '/holdings-data';
+        const cik = prop('cik', fund);
+        if (cik) {
+            axios.get(apiUrl, { params: { cik } }).then(res => {
+                // set pie chart data
+                const newPieData = [
+                    propOr([], 'data.pie_chart_data', res).map(
+                        (entry: HoldingPieData) => ({
+                            name: entry.name.toUpperCase(),
+                            value: entry.val_usd
+                        })
+                    ),
+                    propOr([], 'data.pie_chart_data', res).map(
+                        (entry: HoldingPieData) => ({
+                            name: entry.name.toUpperCase(),
+                            value: entry.balance
+                        })
+                    )
+                ];
+                setPieData(newPieData);
+
+                // set top data
+                const newTopNsData = propOr(
+                    [],
+                    'data.top_five_by_number_shares',
+                    res
+                );
+                setTopNsData(newTopNsData);
+
+                const newTopValData = propOr([], 'data.top_five_by_value', res);
+                setTopValData(newTopValData);
+            });
+        }
+    }, [fund]);
 
     if (!fund) {
         return null;
