@@ -1,3 +1,4 @@
+import { PieChartOutlined, StarOutlined } from '@ant-design/icons';
 import { Tabs } from 'antd';
 import React, { CSSProperties } from 'react';
 
@@ -12,10 +13,26 @@ const Home = () => (
         <NavBar />
         <div style={styles.contentWrapper}>
             <Tabs defaultActiveKey="1">
-                <TabPane tab={<span>Funds</span>} key="1">
+                <TabPane
+                    tab={
+                        <span>
+                            <PieChartOutlined />
+                            Fund Data
+                        </span>
+                    }
+                    key="1"
+                >
                     <Funds />
                 </TabPane>
-                <TabPane tab={<span>Holdings</span>} key="2">
+                <TabPane
+                    tab={
+                        <span>
+                            <StarOutlined />
+                            Holdings Data
+                        </span>
+                    }
+                    key="2"
+                >
                     <Holdings />
                 </TabPane>
             </Tabs>
