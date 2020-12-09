@@ -25,7 +25,7 @@ const Funds = () => {
                 selectedIndex={selectedIndex}
                 setSelectedIndex={setSelectedIndex}
             />
-            <CurrentFund cik={secCompanies[selectedIndex].cik} />
+            <CurrentFund fund={secCompanies[selectedIndex]} />
         </div>
     );
 };
@@ -33,7 +33,7 @@ const Funds = () => {
 const styles = {
     container: {
         display: 'flex',
-        alignItems: 'center',
+        alignItems: 'top',
         justifyContent: 'center',
         flexDirection: 'row',
         paddingTop: 20

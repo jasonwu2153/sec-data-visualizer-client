@@ -47,6 +47,7 @@ const FundSelect = (props: Props) => {
 
 const styles = {
     wrapper: {
+        flex: 1,
         width: 300,
         maxHeight: 600,
         overflowY: 'scroll'
