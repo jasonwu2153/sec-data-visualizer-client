@@ -1,4 +1,5 @@
-import { grey } from '@ant-design/colors';
+import { blue, grey } from '@ant-design/colors';
+import moment from 'moment';
 import React, { CSSProperties } from 'react';
 
 import { black } from '../../../utils/colors';
@@ -25,6 +26,10 @@ const CurrentFund = (props: Props) => {
                     latest NPORT-P filings on{' '}
                     <a href="https://www.sec.gov/">sec.gov.</a>
                 </p>
+                <p style={styles.timestampText}>
+                    Filing Scraped on{' '}
+                    {moment(fund.created_at).format('MMM DD YYYY')}.
+                </p>
             </div>
         </div>
     );
@@ -50,6 +55,9 @@ const styles = {
         paddingTop: 10,
         color: grey[3],
         maxWidth: 600
+    } as CSSProperties,
+    timestampText: {
+        color: blue.primary
     } as CSSProperties
 };
 
