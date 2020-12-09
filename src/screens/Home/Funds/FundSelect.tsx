@@ -21,6 +21,7 @@ const FundSelect = (props: Props) => {
                 const isSelected = i === selectedIndex;
                 return (
                     <div
+                        className={isSelected ? '' : 'hover-darken'}
                         onClick={() => setSelectedIndex(i)}
                         style={{
                             ...styles.fundWrapper,

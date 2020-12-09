@@ -14,3 +14,7 @@ code {
 }
 
 @import '~antd/dist/antd.css';
+
+.hover-darken:hover {
+  filter: brightness(80%);
+}
