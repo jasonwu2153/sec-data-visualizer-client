@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, { CSSProperties, useEffect, useState } from 'react';
 
 import { SecCompany } from '../../../utils/types';
+import FundSelect from './FundSelect';
 
 const Funds = () => {
     const [secCompanies, setSecCompanies] = useState<SecCompany[]>([]);
@@ -16,7 +17,15 @@ const Funds = () => {
         return null;
     }
 
-    return <div style={styles.container}></div>;
+    return (
+        <div style={styles.container}>
+            <FundSelect
+                funds={secCompanies}
+                selectedIndex={selectedIndex}
+                setSelectedIndex={setSelectedIndex}
+            />
+        </div>
+    );
 };
 
 const styles = {
