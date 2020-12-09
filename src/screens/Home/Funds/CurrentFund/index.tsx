@@ -2,8 +2,8 @@ import { blue, grey } from '@ant-design/colors';
 import moment from 'moment';
 import React, { CSSProperties } from 'react';
 
-import { black } from '../../../utils/colors';
-import { SecCompany } from '../../../utils/types';
+import { black } from '../../../../utils/colors';
+import { SecCompany } from '../../../../utils/types';
 
 interface Props {
     fund: SecCompany;
