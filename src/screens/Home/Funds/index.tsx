@@ -32,7 +32,8 @@ const styles = {
     container: {
         display: 'flex',
         alignItems: 'center',
-        justifyContent: 'center'
+        justifyContent: 'center',
+        paddingTop: 20
     } as CSSProperties
 };
 

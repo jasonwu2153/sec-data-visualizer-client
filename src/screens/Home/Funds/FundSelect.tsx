@@ -17,28 +17,30 @@ const FundSelect = (props: Props) => {
             <div style={styles.headerWrapper}>
                 <p style={styles.headerText}>Explore By Company</p>
             </div>
-            {funds.map((fund: SecCompany, i: number) => {
-                const isSelected = i === selectedIndex;
-                return (
-                    <div
-                        className={isSelected ? '' : 'hover-darken'}
-                        onClick={() => setSelectedIndex(i)}
-                        style={{
-                            ...styles.fundWrapper,
-                            ...(isSelected && { background: blue.primary })
-                        }}
-                    >
-                        <p
+            <div style={styles.fundsWrapper}>
+                {funds.map((fund: SecCompany, i: number) => {
+                    const isSelected = i === selectedIndex;
+                    return (
+                        <div
+                            className={isSelected ? '' : 'hover-darken'}
+                            onClick={() => setSelectedIndex(i)}
                             style={{
-                                ...styles.fundName,
-                                ...(isSelected && { color: white })
+                                ...styles.fundWrapper,
+                                ...(isSelected && { background: blue.primary })
                             }}
                         >
-                            {fund.name.toUpperCase()}
-                        </p>
-                    </div>
-                );
-            })}
+                            <p
+                                style={{
+                                    ...styles.fundName,
+                                    ...(isSelected && { color: white })
+                                }}
+                            >
+                                {fund.name.toUpperCase()}
+                            </p>
+                        </div>
+                    );
+                })}
+            </div>
         </div>
     );
 };
@@ -58,6 +60,10 @@ const styles = {
         fontColor: black,
         fontWeight: 600,
         fontSize: 18
+    } as CSSProperties,
+    fundsWrapper: {
+        paddingRight: 20,
+        borderRight: `1px solid ${lightGray}`
     } as CSSProperties,
     fundWrapper: {
         background: lightGray,
