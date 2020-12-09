@@ -9,7 +9,7 @@ const Home = () => (
     <div style={styles.wrapper}>
         <NavBar />
         <div style={styles.contentWrapper}>
-            <Tabs>
+            <Tabs defaultActiveKey="1">
                 <TabPane tab={<span>Funds</span>} key="1" />
                 <TabPane tab={<span>Holdings</span>} key="2" />
             </Tabs>
