@@ -6,6 +6,7 @@ import React, { CSSProperties, useEffect, useState } from 'react';
 
 import { black } from '../../../../utils/colors';
 import { HoldingPieData, SecCompany, TopData } from '../../../../utils/types';
+import PieChart from './PieChart';
 
 interface Props {
     fund: SecCompany;
@@ -72,6 +73,9 @@ const CurrentFund = (props: Props) => {
                     {moment(fund.created_at).format('MMM DD YYYY')}.
                 </p>
             </div>
+            <div style={styles.graphsWrapper}>
+                <PieChart data={pieData} />
+            </div>
         </div>
     );
 };
@@ -99,6 +103,9 @@ const styles = {
     } as CSSProperties,
     timestampText: {
         color: blue.primary
+    } as CSSProperties,
+    graphsWrapper: {
+        width: '100%'
     } as CSSProperties
 };
 
