@@ -12,13 +12,16 @@ const NavBar = () => {
 
 const styles = {
     wrapper: {
+        position: 'relative',
         background: lightGray,
+        padding: '20px 30px 20px 30px',
         width: '100%',
-        padding: '10px 30px 10px 30px',
-        zIndex: 2
+        zIndex: 1
     } as CSSProperties,
     titleText: {
-        fontWeight: 600
+        fontWeight: 600,
+        fontSize: 16,
+        margin: 0
     } as CSSProperties
 };
 
