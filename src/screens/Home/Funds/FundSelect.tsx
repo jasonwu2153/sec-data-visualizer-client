@@ -21,6 +21,7 @@ const FundSelect = (props: Props) => {
                 const isSelected = i === selectedIndex;
                 return (
                     <div
+                        onClick={() => setSelectedIndex(i)}
                         style={{
                             ...styles.fundWrapper,
                             ...(isSelected && { background: blue.primary })
@@ -62,7 +63,8 @@ const styles = {
         borderRadius: 10,
         padding: 20,
         marginBottom: 10,
-        width: '100%'
+        width: '100%',
+        cursor: 'pointer'
     } as CSSProperties,
     fundName: {
         margin: 0,
