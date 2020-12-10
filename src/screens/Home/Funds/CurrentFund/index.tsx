@@ -6,7 +6,7 @@ import React, { CSSProperties, useEffect, useState } from 'react';
 
 import { black } from '../../../../utils/colors';
 import { HoldingPieData, PieData, SecCompany, TopData } from '../../../../utils/types';
-import PieCharts from './PieCharts';
+import PieChart from './PieChart';
 
 interface Props {
     fund: SecCompany;
@@ -65,8 +65,8 @@ const CurrentFund = (props: Props) => {
                     {moment(fund.created_at).format('MMM DD YYYY')}.
                 </p>
             </div>
-            <div style={styles.graphsWrapper}>
-                <PieCharts data={pieData} />
+            <div style={styles.dataWrapper}>
+                <PieChart data={pieData} />
             </div>
         </div>
     );
@@ -98,12 +98,11 @@ const styles = {
     timestampText: {
         color: blue.primary
     } as CSSProperties,
-    graphsWrapper: {
-        display: 'flex',
+    dataWrapper: {
         flex: 1,
+        display: 'flex',
         alignItems: 'center',
-        justifyContent: 'center',
-        flexDirection: 'column'
+        justifyContent: 'flex-start'
     } as CSSProperties
 };
 
