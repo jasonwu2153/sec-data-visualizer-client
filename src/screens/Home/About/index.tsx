@@ -11,6 +11,7 @@ interface Bio {
     schoolTitle: string;
     workTitle: string;
     workPlace: string;
+    workPlaceLink: string;
     photo: string;
     linkedIn: string;
 }
@@ -21,6 +22,7 @@ const CREATOR_BIOS: Bio[] = [
         schoolTitle: "CS | Yale '22",
         workTitle: 'Software Engineer',
         workPlace: 'Snackpass',
+        workPlaceLink: 'https://partners.snackpass.co/',
         photo: JasonPhoto,
         linkedIn: 'https://www.linkedin.com/in/jwu215/'
     },
@@ -28,7 +30,8 @@ const CREATOR_BIOS: Bio[] = [
         name: 'Michal Lewkowicz',
         schoolTitle: "CS & Math | Yale '23",
         workTitle: 'Researcher',
-        workPlace: 'Yale Robotics Lab',
+        workPlace: 'Yale Social Robotics Lab',
+        workPlaceLink: 'https://scazlab.yale.edu/',
         photo: MichalPhoto,
         linkedIn: 'https://www.linkedin.com/in/michal-lewkowicz-135796173/'
     },
@@ -37,6 +40,7 @@ const CREATOR_BIOS: Bio[] = [
         schoolTitle: "CS & Phil | Yale '23",
         workTitle: 'Product Design',
         workPlace: 'Ameeleo',
+        workPlaceLink: 'https://ameelio.org/#/',
         photo: KevinPhoto,
         linkedIn: 'https://www.linkedin.com/in/idesignandbuildthings/'
     }
@@ -97,7 +101,9 @@ const About = () => {
                         <p style={styles.nameText}>{bio.name}</p>
                         <p style={styles.defaultText}>{bio.schoolTitle}</p>
                         <p style={styles.defaultText}>{bio.workTitle}</p>
-                        <p style={styles.workPlaceText}>@{bio.workPlace}</p>
+                        <a href={bio.workPlaceLink} className="hover-darken">
+                            <p style={styles.workPlaceText}>@{bio.workPlace}</p>
+                        </a>
                         <a href={bio.linkedIn} className="hover-darken">
                             <LinkedinOutlined style={styles.linkedInIcon} />
                         </a>
