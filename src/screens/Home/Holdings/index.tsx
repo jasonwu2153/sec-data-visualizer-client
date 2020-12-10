@@ -3,6 +3,7 @@ import React, { CSSProperties, useEffect, useState } from 'react';
 
 import { black } from '../../../utils/colors';
 import { PopularHoldingData } from '../../../utils/types';
+import BarChart from './BarChart';
 
 const Holdings = () => {
     const [popData, setPopData] = useState<PopularHoldingData[]>([]);
@@ -21,6 +22,7 @@ const Holdings = () => {
         <div style={styles.container}>
             <div style={styles.headerWrapper}>
                 <p style={styles.headerText}>Popular Holdings Across Funds</p>
+                <BarChart data={popData} />
             </div>
         </div>
     );
@@ -28,7 +30,7 @@ const Holdings = () => {
 
 const styles = {
     container: {
-        paddingTop: 20
+        padding: 30
     } as CSSProperties,
     headerWrapper: {
         width: '100%',
