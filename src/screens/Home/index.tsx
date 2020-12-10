@@ -1,8 +1,9 @@
-import { PieChartOutlined, StarOutlined } from '@ant-design/icons';
+import { BookOutlined, PieChartOutlined, StarOutlined } from '@ant-design/icons';
 import { Tabs } from 'antd';
 import React, { CSSProperties } from 'react';
 
 import NavBar from '../../components/NavBar';
+import About from './About';
 import Funds from './Funds';
 import Holdings from './Holdings';
 
@@ -34,6 +35,17 @@ const Home = () => (
                     key="2"
                 >
                     <Holdings />
+                </TabPane>
+                <TabPane
+                    tab={
+                        <span>
+                            <BookOutlined />
+                            About
+                        </span>
+                    }
+                    key="3"
+                >
+                    <About />
                 </TabPane>
             </Tabs>
         </div>
