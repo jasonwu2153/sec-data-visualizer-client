@@ -38,7 +38,8 @@ const BarChart = (props: Props) => {
 
 const styles = {
     wrapper: {
-        width: '100%'
+        width: '100%',
+        marginBottom: 30
     } as CSSProperties
 };
 

@@ -22,7 +22,10 @@ const Holdings = () => {
         <div style={styles.container}>
             <div style={styles.headerWrapper}>
                 <p style={styles.headerText}>Popular Holdings Across Funds</p>
-                <BarChart data={popData} />
+            </div>
+            <BarChart data={popData} />
+            <div style={styles.headerWrapper}>
+                <p style={styles.headerText}>Top 20 Holdings LEI</p>
             </div>
         </div>
     );
@@ -34,7 +37,7 @@ const styles = {
     } as CSSProperties,
     headerWrapper: {
         width: '100%',
-        paddingBottom: 20
+        paddingBottom: 30
     } as CSSProperties,
     headerText: {
         margin: 0,
