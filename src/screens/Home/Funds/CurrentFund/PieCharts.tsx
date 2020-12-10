@@ -6,7 +6,7 @@ import { Doughnut } from 'react-chartjs-2';
 import { PieData } from '../../../../utils/types';
 
 interface Props {
-    data: PieData[][];
+    data: PieData[];
 }
 
 const PieCharts = (props: Props) => {
@@ -24,33 +24,36 @@ const PieCharts = (props: Props) => {
                         Position Distribution by Value in USD
                     </p>
                 </div>
-                <Doughnut
-                    data={{
-                        datasets: [
-                            {
-                                data: data[0].map(prop('value')),
-                                backgroundColor: data[0].map((_, i: number) =>
-                                    i < 9 ? blue[9 - i] : blue[1]
-                                )
-                            }
-                        ],
-                        labels: data[0].map(prop('name'))
-                    }}
-                    height={80}
-                    width={80}
-                    options={{
-                        cutoutPercentage: 80,
-                        legend: { display: false },
-                        tooltips: {
-                            callbacks: {
-                                label: (item: any) => {
-                                    const entry = data[0][item.index];
-                                    return ` ${entry.name}: $${entry.value}`;
+                <div style={styles.graphContainer}>
+                    <Doughnut
+                        data={{
+                            datasets: [
+                                {
+                                    data: data.map(prop('value')),
+                                    backgroundColor: data.map((_, i: number) =>
+                                        i < 9 ? blue[9 - i] : blue[1]
+                                    )
+                                }
+                            ],
+                            labels: data.map(prop('name'))
+                        }}
+                        height={600}
+                        width={600}
+                        options={{
+                            aspectRatio: 1,
+                            cutoutPercentage: 80,
+                            legend: { display: false },
+                            tooltips: {
+                                callbacks: {
+                                    label: (item: any) => {
+                                        const entry = data[item.index];
+                                        return ` ${entry.name}: $${entry.value}`;
+                                    }
                                 }
                             }
-                        }
-                    }}
-                />
+                        }}
+                    />
+                </div>
             </div>
         </div>
     );
@@ -58,15 +61,19 @@ const PieCharts = (props: Props) => {
 
 const styles = {
     wrapper: {
+        width: '100%',
         flex: 1,
+        flexDirection: 'column',
         paddingBottom: 120
     } as CSSProperties,
     chartWrapper: {
+        flex: 1,
         width: '100%',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        flexDirection: 'row'
+        flexDirection: 'row',
+        padding: 60
     } as CSSProperties,
     labelWrapper: {
         marginRight: 60,
@@ -74,6 +81,9 @@ const styles = {
     } as CSSProperties,
     label: {
         fontSize: 22
+    } as CSSProperties,
+    graphContainer: {
+        maxWidth: 600
     } as CSSProperties
 };
 

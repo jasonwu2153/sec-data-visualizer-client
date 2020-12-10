@@ -14,7 +14,7 @@ interface Props {
 
 const CurrentFund = (props: Props) => {
     const { fund } = props;
-    const [pieData, setPieData] = useState<PieData[][]>([]);
+    const [pieData, setPieData] = useState<PieData[]>([]);
     const [topNsData, setTopNsData] = useState<TopData[]>([]);
     const [topValData, setTopValData] = useState<TopData[]>([]);
 
@@ -24,20 +24,12 @@ const CurrentFund = (props: Props) => {
         if (cik) {
             axios.get(apiUrl, { params: { cik } }).then(res => {
                 // set pie chart data
-                const newPieData = [
-                    propOr([], 'data.pie_chart_data', res).map(
-                        (entry: HoldingPieData) => ({
-                            name: entry.name.toUpperCase(),
-                            value: entry.val_usd
-                        })
-                    ),
-                    propOr([], 'data.pie_chart_data', res).map(
-                        (entry: HoldingPieData) => ({
-                            name: entry.name.toUpperCase(),
-                            value: entry.balance
-                        })
-                    )
-                ];
+                const newPieData = propOr([], 'data.pie_chart_data', res).map(
+                    (entry: HoldingPieData) => ({
+                        name: entry.name.toUpperCase(),
+                        value: entry.val_usd
+                    })
+                );
                 setPieData(newPieData);
 
                 // set top data
