@@ -23,7 +23,7 @@ const TopFive = (props: Props) => {
                         <div style={styles.entryContainer} key={i}>
                             <p style={styles.entryName}>{entry.name}</p>
                             <p style={styles.entryText}>
-                                ${numberWithCommas(entry.val_usd)}
+                                Value: ${numberWithCommas(entry.val_usd)}
                             </p>
                             <p style={styles.entryText}>LEI: {entry.lei}</p>
                             <p style={styles.entryText}>
@@ -46,6 +46,9 @@ const TopFive = (props: Props) => {
                     {balance_data.map((entry: TopData, i: number) => (
                         <div style={styles.entryContainer} key={i}>
                             <p style={styles.entryName}>{entry.name}</p>
+                            <p style={styles.entryText}>
+                                Shares: {numberWithCommas(entry.balance)}
+                            </p>
                         </div>
                     ))}
                 </div>
