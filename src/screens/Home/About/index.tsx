@@ -78,14 +78,17 @@ const About = () => {
                     </li>
                 </ul>
                 If you click on any of the components above, we'll redirect you
-                to the corresponding GitHub repository. 😊 Each of the
-                repositories has a pretty descriptive README.md that explains
-                the code with more technical details.
+                to the corresponding GitHub repository.{' '}
+                <span aria-label="smile">😊</span> Each of the repositories has
+                a pretty descriptive README.md that explains the code with more
+                technical details.
             </p>
             <p style={{ ...styles.title, marginTop: 30 }}>Creators</p>
             <p style={styles.text}>
-                Now that we've talked a bit about the project itself, allow us
-                to introduce ourselves.
+                If you ever have any questions about the implementation of the
+                project or just want to chat, feel free to reach out to any of
+                us on LinkedIn. We'd be more than happy to talk.{' '}
+                <span aria-label="hand-wave">👋</span>
             </p>
             <div style={styles.profilesWrap}>
                 {CREATOR_BIOS.map((bio: Bio) => (
