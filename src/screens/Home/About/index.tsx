@@ -138,11 +138,13 @@ const styles = {
         borderRadius: '50%'
     } as CSSProperties,
     nameText: {
-        marginTop: 10,
-        marginBottom: 0
+        marginTop: 15,
+        marginBottom: 0,
+        fontWeight: 500
     } as CSSProperties,
     defaultText: {
-        margin: 0
+        margin: 0,
+        color: grey[5]
     } as CSSProperties,
     workPlaceText: {
         margin: 0,
