@@ -23,3 +23,10 @@ export interface TopData {
     name: string;
     units: string;
 }
+
+export interface PopularHoldingData {
+    held_by: number;
+    lei: string;
+    name: string;
+    title: string;
+}
