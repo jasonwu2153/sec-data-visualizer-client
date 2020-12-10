@@ -4,6 +4,7 @@ import React, { CSSProperties, useEffect, useState } from 'react';
 import { black } from '../../../utils/colors';
 import { PopularHoldingData } from '../../../utils/types';
 import BarChart from './BarChart';
+import TopHoldingsDetails from './TopHoldingsDetails';
 
 const Holdings = () => {
     const [popData, setPopData] = useState<PopularHoldingData[]>([]);
@@ -27,6 +28,7 @@ const Holdings = () => {
             <div style={styles.headerWrapper}>
                 <p style={styles.headerText}>Top 20 Holdings LEI</p>
             </div>
+            <TopHoldingsDetails data={popData} />
         </div>
     );
 };
