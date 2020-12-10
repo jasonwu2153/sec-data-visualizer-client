@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { CSSProperties, useEffect, useState } from 'react';
 
+import { black } from '../../../utils/colors';
 import { PopularHoldingData } from '../../../utils/types';
 
 const Holdings = () => {
@@ -16,12 +17,28 @@ const Holdings = () => {
         return null;
     }
 
-    return <div style={styles.container}></div>;
+    return (
+        <div style={styles.container}>
+            <div style={styles.headerWrapper}>
+                <p style={styles.headerText}>Popular Holdings Across Funds</p>
+            </div>
+        </div>
+    );
 };
 
 const styles = {
     container: {
         paddingTop: 20
+    } as CSSProperties,
+    headerWrapper: {
+        width: '100%',
+        paddingBottom: 20
+    } as CSSProperties,
+    headerText: {
+        margin: 0,
+        fontColor: black,
+        fontWeight: 600,
+        fontSize: 20
     } as CSSProperties
 };
 
