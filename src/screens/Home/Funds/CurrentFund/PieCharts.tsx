@@ -3,6 +3,7 @@ import { prop } from 'lodash/fp';
 import React, { CSSProperties } from 'react';
 import { Doughnut } from 'react-chartjs-2';
 
+import { numberWithCommas } from '../../../../utils/helpers';
 import { PieData } from '../../../../utils/types';
 
 interface Props {
@@ -47,7 +48,9 @@ const PieCharts = (props: Props) => {
                                 callbacks: {
                                     label: (item: any) => {
                                         const entry = data[item.index];
-                                        return ` ${entry.name}: $${entry.value}`;
+                                        return ` ${
+                                            entry.name
+                                        }: $${numberWithCommas(entry.value)}`;
                                     }
                                 }
                             }
