@@ -49,6 +49,10 @@ const TopFive = (props: Props) => {
                             <p style={styles.entryText}>
                                 Shares: {numberWithCommas(entry.balance)}
                             </p>
+                            <p style={styles.entryText}>LEI: {entry.lei}</p>
+                            <p style={styles.entryText}>
+                                ISIN: {entry.isin ? entry.isin : 'N/A'}
+                            </p>
                         </div>
                     ))}
                 </div>
