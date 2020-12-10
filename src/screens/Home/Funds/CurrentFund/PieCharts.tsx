@@ -19,42 +19,44 @@ const PieCharts = (props: Props) => {
 
     return (
         <div style={styles.wrapper}>
-            <div style={styles.graphContainer}>
-                <div style={styles.graphTitleContainer}>
-                    <p style={styles.graphTitle}>
-                        Position Distribution by Value in USD
-                    </p>
-                </div>
-                <Doughnut
-                    data={{
-                        datasets: [
-                            {
-                                data: data.map(prop('value')),
-                                backgroundColor: data.map((_, i: number) =>
-                                    i < 9 ? blue[9 - i] : blue[1]
-                                )
-                            }
-                        ],
-                        labels: data.map(prop('name'))
-                    }}
-                    height={460}
-                    width={460}
-                    options={{
-                        aspectRatio: 1,
-                        cutoutPercentage: 80,
-                        legend: { display: false },
-                        tooltips: {
-                            callbacks: {
-                                label: (item: any) => {
-                                    const entry = data[item.index];
-                                    return ` ${entry.name}: $${numberWithCommas(
-                                        entry.value
-                                    )}`;
+            <div style={styles.sectionContainer}>
+                <div style={styles.graphContainer}>
+                    <div style={styles.graphTitleContainer}>
+                        <p style={styles.graphTitle}>
+                            Position Distribution by Value in USD
+                        </p>
+                    </div>
+                    <Doughnut
+                        data={{
+                            datasets: [
+                                {
+                                    data: data.map(prop('value')),
+                                    backgroundColor: data.map((_, i: number) =>
+                                        i < 9 ? blue[9 - i] : blue[1]
+                                    )
+                                }
+                            ],
+                            labels: data.map(prop('name'))
+                        }}
+                        height={460}
+                        width={460}
+                        options={{
+                            aspectRatio: 1,
+                            cutoutPercentage: 80,
+                            legend: { display: false },
+                            tooltips: {
+                                callbacks: {
+                                    label: (item: any) => {
+                                        const entry = data[item.index];
+                                        return ` ${
+                                            entry.name
+                                        }: $${numberWithCommas(entry.value)}`;
+                                    }
                                 }
                             }
-                        }
-                    }}
-                />
+                        }}
+                    />
+                </div>
             </div>
         </div>
     );
@@ -63,9 +65,12 @@ const PieCharts = (props: Props) => {
 const styles = {
     wrapper: {
         width: '100%',
-        flex: 1,
-        flexDirection: 'column',
         paddingBottom: 120
+    } as CSSProperties,
+    sectionContainer: {
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'flex-start'
     } as CSSProperties,
     graphContainer: {
         maxWidth: 460,
