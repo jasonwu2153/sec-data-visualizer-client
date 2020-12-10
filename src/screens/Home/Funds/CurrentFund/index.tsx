@@ -7,6 +7,7 @@ import React, { CSSProperties, useEffect, useState } from 'react';
 import { black } from '../../../../utils/colors';
 import { HoldingPieData, PieData, SecCompany, TopData } from '../../../../utils/types';
 import PieChart from './PieChart';
+import TopFive from './TopFive';
 
 interface Props {
     fund: SecCompany;
@@ -67,6 +68,7 @@ const CurrentFund = (props: Props) => {
             </div>
             <div style={styles.dataWrapper}>
                 <PieChart data={pieData} />
+                <TopFive value_data={topValData} balance_data={topNsData} />
             </div>
         </div>
     );
@@ -101,7 +103,7 @@ const styles = {
     dataWrapper: {
         flex: 1,
         display: 'flex',
-        alignItems: 'center',
+        alignItems: 'top',
         justifyContent: 'flex-start'
     } as CSSProperties
 };
