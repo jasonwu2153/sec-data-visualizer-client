@@ -1,6 +1,46 @@
 import { grey } from '@ant-design/colors';
 import React, { CSSProperties } from 'react';
 
+import JasonPhoto from '../../../assets/jason_profile.jpg';
+import KevinPhoto from '../../../assets/kevin_profile.jpg';
+import MichalPhoto from '../../../assets/michal_profile.jpeg';
+
+interface Bio {
+    name: string;
+    schoolTitle: string;
+    workTitle: string;
+    workPlace: string;
+    photo: string;
+    linkedIn: string;
+}
+
+const CREATOR_BIOS: Bio[] = [
+    {
+        name: 'Jason Wu',
+        schoolTitle: "CS | Yale '22",
+        workTitle: 'Software Engineer',
+        workPlace: 'Amazon/Snackpass',
+        photo: JasonPhoto,
+        linkedIn: 'https://www.linkedin.com/in/jwu215/'
+    },
+    {
+        name: 'Michal Lewkowicz',
+        schoolTitle: "CS & Math | Yale '23",
+        workTitle: 'Undergraduate Researcher',
+        workPlace: 'Yale Robotics Lab',
+        photo: MichalPhoto,
+        linkedIn: 'https://www.linkedin.com/in/michal-lewkowicz-135796173/'
+    },
+    {
+        name: 'Kevin Zhang',
+        schoolTitle: "CS & Philosophy | Yale '23",
+        workTitle: 'Fellow, Product Design',
+        workPlace: 'hackNY, Ameeleo',
+        photo: KevinPhoto,
+        linkedIn: 'https://www.linkedin.com/in/idesignandbuildthings/'
+    }
+];
+
 const About = () => {
     return (
         <div style={styles.container}>
