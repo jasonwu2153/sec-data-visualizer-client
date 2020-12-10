@@ -1,5 +1,5 @@
 import axios from 'axios';
-import React, { useEffect, useState } from 'react';
+import React, { CSSProperties, useEffect, useState } from 'react';
 
 import { PopularHoldingData } from '../../../utils/types';
 
@@ -16,7 +16,13 @@ const Holdings = () => {
         return null;
     }
 
-    return <></>;
+    return <div style={styles.container}></div>;
+};
+
+const styles = {
+    container: {
+        paddingTop: 20
+    } as CSSProperties
 };
 
 export default Holdings;
