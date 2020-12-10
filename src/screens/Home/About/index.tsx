@@ -1,4 +1,4 @@
-import { grey } from '@ant-design/colors';
+import { blue, grey } from '@ant-design/colors';
 import React, { CSSProperties } from 'react';
 
 import JasonPhoto from '../../../assets/jason_profile.jpg';
@@ -19,23 +19,23 @@ const CREATOR_BIOS: Bio[] = [
         name: 'Jason Wu',
         schoolTitle: "CS | Yale '22",
         workTitle: 'Software Engineer',
-        workPlace: 'Amazon/Snackpass',
+        workPlace: 'Amazon',
         photo: JasonPhoto,
         linkedIn: 'https://www.linkedin.com/in/jwu215/'
     },
     {
         name: 'Michal Lewkowicz',
         schoolTitle: "CS & Math | Yale '23",
-        workTitle: 'Undergraduate Researcher',
+        workTitle: 'Researcher',
         workPlace: 'Yale Robotics Lab',
         photo: MichalPhoto,
         linkedIn: 'https://www.linkedin.com/in/michal-lewkowicz-135796173/'
     },
     {
         name: 'Kevin Zhang',
-        schoolTitle: "CS & Philosophy | Yale '23",
-        workTitle: 'Fellow, Product Design',
-        workPlace: 'hackNY, Ameeleo',
+        schoolTitle: "CS & Phil | Yale '23",
+        workTitle: 'Product Design',
+        workPlace: 'Ameeleo',
         photo: KevinPhoto,
         linkedIn: 'https://www.linkedin.com/in/idesignandbuildthings/'
     }
@@ -86,6 +86,17 @@ const About = () => {
                 Now that we've talked a bit about the project itself, allow us
                 to introduce ourselves.
             </p>
+            <div style={styles.profilesWrap}>
+                {CREATOR_BIOS.map((bio: Bio) => (
+                    <div style={styles.profileWrap}>
+                        <img src={bio.photo} style={styles.profileImg} alt="" />
+                        <p style={styles.nameText}>{bio.name}</p>
+                        <p style={styles.defaultText}>{bio.schoolTitle}</p>
+                        <p style={styles.defaultText}>{bio.workTitle}</p>
+                        <p style={styles.workPlaceText}>@{bio.workPlace}</p>
+                    </div>
+                ))}
+            </div>
         </div>
     );
 };
@@ -94,7 +105,7 @@ const styles = {
     container: {
         maxWidth: 660,
         margin: '0 auto',
-        padding: 30,
+        padding: '30px 30px 120px 30px',
         textAlign: 'left'
     } as CSSProperties,
     title: {
@@ -105,6 +116,33 @@ const styles = {
     text: {
         color: grey[5],
         marginBottom: 10
+    } as CSSProperties,
+    profilesWrap: {
+        display: 'flex',
+        alignItems: 'top',
+        justifyContent: 'flex-start'
+    } as CSSProperties,
+    profileWrap: {
+        margin: 30,
+        display: 'flex',
+        alignItems: 'center',
+        flexDirection: 'column',
+        textAlign: 'center'
+    } as CSSProperties,
+    profileImg: {
+        width: 100,
+        borderRadius: '50%'
+    } as CSSProperties,
+    nameText: {
+        marginTop: 10,
+        marginBottom: 0
+    } as CSSProperties,
+    defaultText: {
+        margin: 0
+    } as CSSProperties,
+    workPlaceText: {
+        margin: 0,
+        color: blue[5]
     } as CSSProperties
 };
 
