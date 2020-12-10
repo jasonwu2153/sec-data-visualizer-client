@@ -62,7 +62,7 @@ const PieChart = (props: Props) => {
 
 const styles = {
     wrapper: {
-        display: 'flex',
+        marginTop: 30,
         paddingBottom: 120
     } as CSSProperties,
     graphContainer: {
