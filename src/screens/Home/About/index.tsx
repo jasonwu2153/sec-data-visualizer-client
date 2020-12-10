@@ -1,4 +1,5 @@
 import { blue, grey } from '@ant-design/colors';
+import { LinkedinOutlined } from '@ant-design/icons';
 import React, { CSSProperties } from 'react';
 
 import JasonPhoto from '../../../assets/jason_profile.jpg';
@@ -19,7 +20,7 @@ const CREATOR_BIOS: Bio[] = [
         name: 'Jason Wu',
         schoolTitle: "CS | Yale '22",
         workTitle: 'Software Engineer',
-        workPlace: 'Amazon',
+        workPlace: 'Snackpass',
         photo: JasonPhoto,
         linkedIn: 'https://www.linkedin.com/in/jwu215/'
     },
@@ -94,6 +95,9 @@ const About = () => {
                         <p style={styles.defaultText}>{bio.schoolTitle}</p>
                         <p style={styles.defaultText}>{bio.workTitle}</p>
                         <p style={styles.workPlaceText}>@{bio.workPlace}</p>
+                        <a href={bio.linkedIn} className="hover-darken">
+                            <LinkedinOutlined style={styles.linkedInIcon} />
+                        </a>
                     </div>
                 ))}
             </div>
@@ -143,6 +147,12 @@ const styles = {
     workPlaceText: {
         margin: 0,
         color: blue[5]
+    } as CSSProperties,
+    linkedInIcon: {
+        fontSize: 24,
+        color: blue[5],
+        marginTop: 10,
+        cursor: 'pointer'
     } as CSSProperties
 };
 
