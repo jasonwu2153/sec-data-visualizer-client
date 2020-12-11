@@ -13,7 +13,7 @@ const Home = () => (
     <div style={styles.wrapper}>
         <NavBar />
         <div style={styles.contentWrapper}>
-            <Tabs defaultActiveKey="1">
+            <Tabs defaultActiveKey="2">
                 <TabPane
                     tab={
                         <span>

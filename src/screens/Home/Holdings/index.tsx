@@ -3,8 +3,10 @@ import React, { CSSProperties, useEffect, useState } from 'react';
 
 import { black } from '../../../utils/colors';
 import { PopularHoldingData } from '../../../utils/types';
+import { fillerData } from '../../../utils/data';
 import BarChart from './BarChart';
 import TopHoldingsDetails from './TopHoldingsDetails';
+import '../../../utils/style.css';
 
 const Holdings = () => {
     const [popData, setPopData] = useState<PopularHoldingData[]>([]);
@@ -13,6 +15,7 @@ const Holdings = () => {
         const apiUrl =
             process.env.REACT_APP_API_URL + '/popular-legal-entities';
         axios.get(apiUrl).then(res => setPopData(res.data));
+        setPopData(fillerData);
     }, []);
 
     if (!popData || popData.length === 0) {
@@ -20,14 +23,12 @@ const Holdings = () => {
     }
 
     return (
-        <div style={styles.container}>
-            <div style={styles.headerWrapper}>
-                <p style={styles.headerText}>Popular Holdings Across Funds</p>
-            </div>
+        <div className="page-container">
+            <br />
+            <div className="h1">Popular Holdings Across Funds</div>
             <BarChart data={popData} />
-            <div style={styles.headerWrapper}>
-                <p style={styles.headerText}>Top 20 Holdings LEI</p>
-            </div>
+            <hr />
+            <br />
             <TopHoldingsDetails data={popData} />
         </div>
     );
