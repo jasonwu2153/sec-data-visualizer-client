@@ -1,6 +1,6 @@
 import './styles.css';
 
-import React, { CSSProperties } from 'react';
+import React from 'react';
 
 import { PopularHoldingData } from '../../../utils/types';
 
