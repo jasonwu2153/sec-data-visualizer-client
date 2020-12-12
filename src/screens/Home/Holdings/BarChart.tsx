@@ -15,7 +15,12 @@ const BarChart = (props: Props) => {
         <div style={styles.wrapper}>
             <Bar
                 data={{
-                    datasets: [{ data: data.map(prop('held_by')) }],
+                    datasets: [
+                        {
+                            data: data.map(prop('held_by')),
+                            backgroundColor: '#4491F7'
+                        }
+                    ],
                     labels: data.map(prop('name'))
                 }}
                 options={{
@@ -29,6 +34,22 @@ const BarChart = (props: Props) => {
                                 return ` Held by ${entry.held_by} SEC funds.`;
                             }
                         }
+                    },
+                    scales: {
+                        xAxes: [
+                            {
+                                gridLines: {
+                                    color: 'rgba(0, 0, 0, 0)'
+                                }
+                            }
+                        ],
+                        yAxes: [
+                            {
+                                gridLines: {
+                                    color: 'rgba(0, 0, 0, 0)'
+                                }
+                            }
+                        ]
                     }
                 }}
             />

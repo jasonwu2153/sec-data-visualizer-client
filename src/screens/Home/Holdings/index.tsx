@@ -1,7 +1,8 @@
-import axios from 'axios';
-import React, { CSSProperties, useEffect, useState } from 'react';
+import './styles.css';
 
-import { black } from '../../../utils/colors';
+import axios from 'axios';
+import React, { useEffect, useState } from 'react';
+
 import { PopularHoldingData } from '../../../utils/types';
 import BarChart from './BarChart';
 import TopHoldingsDetails from './TopHoldingsDetails';
@@ -20,33 +21,15 @@ const Holdings = () => {
     }
 
     return (
-        <div style={styles.container}>
-            <div style={styles.headerWrapper}>
-                <p style={styles.headerText}>Popular Holdings Across Funds</p>
-            </div>
+        <div className="page-container">
+            <br />
+            <div className="h1">Popular Holdings Across Funds</div>
             <BarChart data={popData} />
-            <div style={styles.headerWrapper}>
-                <p style={styles.headerText}>Top 20 Holdings LEI</p>
-            </div>
+            <hr />
+            <br />
             <TopHoldingsDetails data={popData} />
         </div>
     );
-};
-
-const styles = {
-    container: {
-        padding: 30
-    } as CSSProperties,
-    headerWrapper: {
-        width: '100%',
-        paddingBottom: 30
-    } as CSSProperties,
-    headerText: {
-        margin: 0,
-        fontColor: black,
-        fontWeight: 600,
-        fontSize: 20
-    } as CSSProperties
 };
 
 export default Holdings;

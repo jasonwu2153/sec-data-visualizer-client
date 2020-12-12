@@ -1,0 +1,66 @@
+.wrapper {
+  width: 100%;
+  margin-bottom: 50px;
+}
+
+.cardContainer {
+  border-radius: 8px;
+  padding: 12px;
+  background-color: #fafafa;
+  margin: 8px 0 8px 0;
+}
+
+.cardContainer:hover {
+  background-color: #f1f3ff;
+}
+
+.h1 {
+  font-size: 28px;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+.h2 {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.b1 {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.large-container {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+
+.page-container {
+  max-width: 800px;
+  margin: auto;
+}
+
+hr {
+  opacity: 0.2;
+}
+
+.table {
+  width: 100%;
+  font-size: 16px;
+  border-collapse: collapse;
+}
+
+.row {
+  height: 50px;
+}
+
+td,
+th {
+  padding: 8px;
+  border: 1px solid #f7f7f7;
+}
+
+.row:nth-child(even) {
+  background-color: #f8fbff;
+}
