@@ -1,9 +1,8 @@
-import { blue } from '@ant-design/colors';
+import './styles.css';
+
 import React, { CSSProperties } from 'react';
-import { black, gray100, gray200 } from 'src/utils/colors';
 
 import { PopularHoldingData } from '../../../utils/types';
-import '../../../utils/style.css';
 
 interface Props {
     data: PopularHoldingData[];
