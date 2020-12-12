@@ -1,6 +1,6 @@
 import React, { CSSProperties } from 'react';
 
-import { lightGray } from "../../utils/colors"
+import { lightGray } from '../../utils/colors';
 
 const NavBar = () => {
     return (
