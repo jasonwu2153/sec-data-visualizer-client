@@ -37,14 +37,3 @@ const TopHoldingsDetails = (props: Props) => {
 };
 
 export default TopHoldingsDetails;
-
-// {data.map((entry: PopularHoldingData, i: number) => (
-//     <div className="cardContainer" key={i}>
-//         <div className="h2">{entry.name}</div>
-//         <div className="b1">{entry.title}</div>
-//         <div>LEI: {entry.lei}</div>
-//         <div>
-//             Held By <strong>{entry.held_by}</strong> Funds
-//         </div>
-//     </div>
-// ))}
